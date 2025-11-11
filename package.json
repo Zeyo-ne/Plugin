@@ -1,0 +1,42 @@
+{
+  "name": "work-life-balance",
+  "displayName": "Баланс работы и отдыха",
+  "description": "Лёгкие напоминания делать перерывы, упражнения для глаз и короткие разминки во время работы.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "engines": { "vscode": "^1.50.0" },
+  "main": "extension.js",
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:workLifeBalance.openExercises",
+    "onCommand:workLifeBalance.toggleTimer"
+  ],
+  "contributes": {
+    "commands": [
+      { "command": "workLifeBalance.openExercises", "title": "workLifeBalance: Открыть упражнения" },
+      { "command": "workLifeBalance.toggleTimer", "title": "workLifeBalance: Запустить/Остановить таймер" },
+      { "command": "workLifeBalance.resetTimer", "title": "workLifeBalance: Сбросить таймер" }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Баланс работы и отдыха",
+      "properties": {
+        "workLifeBalance.remindMinutes": {
+          "type": "number",
+          "default": 50,
+          "description": "Минуты работы до напоминания о разминке."
+        },
+        "workLifeBalance.eyeExerciseMinutes": {
+          "type": "number",
+          "default": 20,
+          "description": "Минуты до напоминания по правилу 20-20-20 для глаз."
+        },
+        "workLifeBalance.snoozeMinutes": {
+          "type": "number",
+          "default": 10,
+          "description": "Длительность отложенного напоминания (в минутах)."
+        }
+      }
+    }
+  }
+}
